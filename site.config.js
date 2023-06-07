@@ -1,7 +1,7 @@
 const CONFIG = {
   // profile setting (required)
   profile: {
-    name: "rangelvarnier",
+    name: "Rangel Varnier",
     image: "/avatar.svg", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
     role: "Software engineer",
     bio: "I develop everything for web",
@@ -10,21 +10,21 @@ const CONFIG = {
     github: "rangelvarnier",
     instagram: "",
   },
-  projects: [
-    {
-      name: `morethan-log`,
-      href: "https://github.com/rangelvarnier/morethan-log",
-    },
-  ],
+  // projects: [
+  //   {
+  //     name: `morethan-log`,
+  //     href: "https://github.com/rangelvarnier/morethan-log",
+  //   },
+  // ],
   // blog setting (required)
   blog: {
-    title: "morethan-log",
+    title: "rangel.log",
     description: "welcome to morethan-log!",
     theme: "auto", // ['light', 'dark', 'auto']
   },
 
   // CONFIG configration (required)
-  link: "https://morethan-log-rouge.vercel.app",
+  link: "https://rangel.vercel.app",
   since: 2023, // If leave this empty, current year will be used.
   lang: "en-US", // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES', 'ko-KR']
   ogImageGenerateURL: "https://og-image-korean.vercel.app", // The link to generate OG image, don't end with a slash
@@ -51,7 +51,7 @@ const CONFIG = {
     },
   },
   utterances: {
-    enable: false,
+    enable: true,
     config: {
       repo: "morethanmin/morethan-log",
       "issue-term": "og:title",
