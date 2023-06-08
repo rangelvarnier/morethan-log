@@ -56,10 +56,11 @@ const CONFIG = {
       repo: "rangelvarnier/morethan-log",
       "issue-term": "og:title",
       label: "💬 Utterances",
+      theme:"preferred-color-scheme"
     },
   },
   cusdis: {
-    enable: true,
+    enable: false,
     config: {
       host: "https://cusdis.com",
       appid: process.env.CUSDIS_APP_ID || "", // Embed Code -> data-app-id value
