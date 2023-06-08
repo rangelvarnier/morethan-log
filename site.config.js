@@ -4,7 +4,7 @@ const CONFIG = {
     name: "Rangel Varnier",
     image: "/avatar.svg", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
     role: "Software engineer",
-    bio: "I develop everything for web",
+    bio: "I develop everything for the web",
     email: "rangel.varnier@gmail.com",
     linkedin: "rangelvarnier",
     github: "rangelvarnier",
@@ -55,8 +55,7 @@ const CONFIG = {
     config: {
       repo: "rangelvarnier/morethan-log",
       "issue-term": "og:title",
-      label: "💬 Utterances",
-      theme:"preferred-color-scheme"
+      label: "💬 Utterances"
     },
   },
   cusdis: {
