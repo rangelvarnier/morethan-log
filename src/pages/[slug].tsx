@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 
   return {
     paths: filteredPost.map((row) => `/${row.slug}`),
-    fallback: true,
+    fallback: false,
   }
 }
 
