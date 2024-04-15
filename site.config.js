@@ -4,7 +4,7 @@ const CONFIG = {
     name: "Rangel Varnier",
     image: "/avatar.svg", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
     role: "Software engineer",
-    bio: "I develop everything for the web",
+    bio: "",
     email: "rangel.varnier@gmail.com",
     linkedin: "rangelvarnier",
     github: "rangelvarnier",
@@ -18,7 +18,7 @@ const CONFIG = {
   ],
   // blog setting (required)
   blog: {
-    title: "</> Rangel Varnier",
+    title: "Rangel Varnier",
     description: "rangel varnier",
     theme: "auto", // ['light', 'dark', 'auto']
   },
