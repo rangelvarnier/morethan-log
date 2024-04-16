@@ -38,6 +38,7 @@ const PostHeader: React.FC<Props> = ({ data }) => {
                 data?.date?.start_date || data.createdTime,
                 CONFIG.lang
               )}
+              {<p><span id="time"></span></p>}
             </div>
           </div>
           <div className="flex items-center mb-4">

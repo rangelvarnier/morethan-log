@@ -1,5 +1,6 @@
 import { TPost } from "@/src/types"
 import useMermaidEffect from "./hooks/useMermaidEffect"
+import useReadTimeEffect from "./hooks/useReadTimeEffect"
 import PostDetail from "./components/PostDetail"
 import PageDetail from "./components/PageDetail"
 
@@ -10,6 +11,7 @@ type Props = {
 
 const Detail: React.FC<Props> = ({ blockMap, data }) => {
   useMermaidEffect()
+  useReadTimeEffect()
 
   return (
     <div>

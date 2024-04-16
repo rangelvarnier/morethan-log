@@ -69,7 +69,6 @@ type Props = {
 
 const PostDetail: React.FC<Props> = ({ blockMap, data }) => {
   const category = (data.category && data.category?.[0]) || undefined
-
   return (
     <div
       className={`m-auto max-w-12xl bg-white dark:bg-zinc-700 rounded-3xl py-12 px-6 shadow-md`}
