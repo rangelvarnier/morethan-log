@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 const useReadTimeEffect = () => {
 
-  const readingTime= (text) => {
+  const readingTime= (text:any) => {
     const averageWPM = 225;
 
     const words = text.trim().split(/\s+/);
@@ -27,11 +27,12 @@ const useReadTimeEffect = () => {
 
   useEffect(() => {
     if (!document) return
-    const elements = document.getElementsByClassName("notion-page")
-    if (!elements) return
-
-    const text = document.getElementsByClassName("notion-page")[0].outerText
-    document.getElementById("time").innerText = `Tempo estimado de leitura: ${readingTime(text)} minutos`;
+    const timeElement = document.getElementById("time");
+    const pageElement = document.getElementsByClassName("notion-page")
+    if (!pageElement || !timeElement) return
+ 
+    const text = pageElement[0].textContent
+    timeElement.innerText = `Tempo estimado de leitura: ${readingTime(text)} minutos`;
    
   }, [])
 
