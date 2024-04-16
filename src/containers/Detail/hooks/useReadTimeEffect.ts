@@ -3,10 +3,7 @@ import { useEffect, useState } from 'react';
 const useReadTimeEffect = () => {
 
   const readingTime= (text:any) => {
-    const averageWPM = 225;
-
-    const words = text.trim().split(/\s+/);
-    return Math.ceil(words.length/ averageWPM)
+    const averageWPM = 238;
 
     const adjustedText = text.replace(/(.)\1+/g, '$1');
 
@@ -15,12 +12,14 @@ const useReadTimeEffect = () => {
     const adjustedCharCount = adjustedSentences.length;
 
     const adjustedWords = adjustedSentences.trim().split(/\s+/);
+
     const adjustedWordCount = adjustedWords.length;
+    
     const averageWordLength = adjustedCharCount / adjustedWordCount;
 
-    const adjustedTime = (adjustedCharCount / averageWPM) * (averageWordLength / 5);
+    const adjustedTime = (adjustedWordCount / averageWPM) * (averageWordLength / 5);
 
-    const formattedAdjustedTime = adjustedTime > 1 ? Math.round(adjustedTime) + " min" : "Less than 1 min";
+    const formattedAdjustedTime = adjustedTime > 1 ? Math.round(adjustedTime) + " minutos" : "Menos de 1 minuto";
 
     return formattedAdjustedTime;
   }
@@ -32,7 +31,7 @@ const useReadTimeEffect = () => {
     if (!pageElement || !timeElement) return
  
     const text = pageElement[0].textContent
-    timeElement.innerText = `Tempo estimado de leitura: ${readingTime(text)} minutos`;
+    timeElement.innerText = `Tempo estimado de leitura: ${readingTime(text)}`;
    
   }, [])
 
