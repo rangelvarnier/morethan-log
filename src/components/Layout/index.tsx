@@ -1,6 +1,8 @@
 import Header from "./Header"
 import PropTypes from "prop-types"
 import MetaConfig, { MetaConfigProps } from "./MetaConfig"
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 type Props = {
   children: React.ReactNode
@@ -24,6 +26,8 @@ const Layout: React.FC<Props> = ({
           } ${metaConfig.type === "Paper" && "py-10"} `}
         >
           {children}
+          <Analytics/>
+          <SpeedInsights/>
         </main>
       </div>
     </div>
