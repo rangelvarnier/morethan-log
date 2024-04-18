@@ -1,5 +1,5 @@
 import { DEFAULT_CATEGORY } from "@/src/constants"
-import useDropdown from "@hooks/useDropdown"
+import UseDropdown from "@hooks/useDropdown"
 import { TCategories } from "@/src/types"
 import { useRouter } from "next/router"
 import React from "react"
@@ -11,7 +11,7 @@ type Props = {
 
 const CategorySelect: React.FC<Props> = ({ data }) => {
   const router = useRouter()
-  const [dropdownRef, opened, handleOpen] = useDropdown()
+  const [dropdownRef, opened, handleOpen] = UseDropdown()
 
   const currentCategory = `${router.query.category || ``}` || DEFAULT_CATEGORY
 

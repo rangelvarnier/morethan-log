@@ -7,23 +7,26 @@ type Props = {}
 
 const Logo: React.FC<Props> = () => {
   return (
-    <Link href="/">
-      <a aria-label={CONFIG.blog.title}>
+    <Link href="/" aria-label={CONFIG.blog.title}>
+
         <div className="flex items-center">
         <Image
-            src={CONFIG.profile.image}
-            width={45}
-            height={45}
-            alt="profile_image"
-            className="relative"
-          />
+          src={CONFIG.profile.image}
+          width={45}
+          height={45}
+          alt="profile_image"
+          className="relative"
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
           <div className="ml-2 text-black dark:text-white header-name">
             {CONFIG.blog.title}
           </div>
         </div>
-      </a>
-    </Link>
-  )
+
+      </Link>
+  );
 }
 
 export default Logo

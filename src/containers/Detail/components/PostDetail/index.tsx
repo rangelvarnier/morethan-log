@@ -38,12 +38,16 @@ const Code = dynamic(() =>
   })
 )
 const Collection = dynamic(() =>
-  import("react-notion-x/build/third-party/collection").then(
-    (m) => m.Collection
-  )
+  import("react-notion-x/build/third-party/collection").then((m) => m.Collection),
+  {
+    ssr: false,
+  }
 )
 const Equation = dynamic(() =>
-  import("react-notion-x/build/third-party/equation").then((m) => m.Equation)
+  import("react-notion-x/build/third-party/equation").then((m) => m.Equation),
+  {
+    ssr: false,
+  }
 )
 const Pdf = dynamic(
   () => import("react-notion-x/build/third-party/pdf").then((m) => m.Pdf),
@@ -59,7 +63,7 @@ const Modal = dynamic(
 )
 
 const mapPageUrl = (id: string) => {
-  return "https://www.notion.so/" + id.replace(/-/g, "")
+  return "https://www.notion.so/" + id.replace(/-/g, "");
 }
 
 type Props = {

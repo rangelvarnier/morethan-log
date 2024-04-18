@@ -15,7 +15,7 @@ const PostCard: React.FC<Props> = ({ data }) => {
 
   return (
     <Link href={`/${data.slug}`}>
-      <a>
+
         <article
           key={data.id}
           className="relative overflow-hidden mb-6 md:mb-8 rounded-2xl bg-white dark:bg-zinc-700 hover:shadow-lg transition-shadow "
@@ -30,9 +30,9 @@ const PostCard: React.FC<Props> = ({ data }) => {
               <Image
                 src={data.thumbnail}
                 className="object-cover"
-                layout="fill"
                 alt={data.title}
-              />
+                fill
+                sizes="100vw" />
             </div>
           )}
           <div
@@ -84,9 +84,9 @@ const PostCard: React.FC<Props> = ({ data }) => {
             </div>
           </div>
         </article>
-      </a>
-    </Link>
-  )
+
+      </Link>
+  );
 }
 
 export default PostCard

@@ -11,13 +11,13 @@ const NavBar: React.FC = () => {
             className="block ml-4 text-black text-gray-500 dark:text-white nav"
           >
             <Link href={link.to}>
-              <a>{link.name}</a>
+              {link.name}
             </Link>
           </li>
         ))}
       </ul>
     </div>
-  )
+  );
 }
 
 export default NavBar

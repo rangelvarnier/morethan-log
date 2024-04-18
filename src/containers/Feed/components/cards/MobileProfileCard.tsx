@@ -18,7 +18,10 @@ const MobileProfileCard: React.FC<Props> = () => {
             height={90}
             alt="profile_image"
             className="relative"
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
           <div className="h-fit dark:text-white">
             <div className=" text-xl  italic font-bold">
               {CONFIG.profile.name}
@@ -73,7 +76,7 @@ const MobileProfileCard: React.FC<Props> = () => {
         </div> */}
       </div>
     </div>
-  )
+  );
 }
 
 export default MobileProfileCard
