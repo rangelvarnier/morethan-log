@@ -1,6 +1,17 @@
 module.exports = {
   reactStrictMode: false,
   images: {
-    domains: ['www.notion.so', 'lh5.googleusercontent.com', 's3-us-west-2.amazonaws.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.notion.so'
+      },
+      {
+        hostname: 'lh5.googleusercontent.com'
+      },
+      {
+        hostname: 's3-us-west-2.amazonaws.com'
+      },
+    ],
   },
 }
