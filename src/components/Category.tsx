@@ -42,7 +42,7 @@ const Category: React.FC<Props> = ({
         className,
       ].join(" ")}
     >
-      {children}
+      <span key={children}>{children.trim()}</span>
     </div>
   )
 }

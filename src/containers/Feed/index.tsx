@@ -42,9 +42,9 @@ const Feed: React.FC<Props> = ({ categories, tags, posts }) => {
         <Lists.TagList className="block lg:hidden" data={tags} />
         <FeedHeader categories={categories} />
         <Lists.PostList q={q} posts={posts} />
-        <Footer className="block flex justify-center pb-8" />
+        <Footer className="flex justify-center pb-8" />
       </div>
-      
+
       {/* <div
         className="common-no-scroll-bar sticky top-[73px] hidden lg:block lg:col-span-3 overflow-scroll"
         style={{

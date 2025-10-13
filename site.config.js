@@ -2,7 +2,7 @@ const CONFIG = {
   // profile setting (required)
   profile: {
     name: "Rangel Varnier",
-    image: "/avatar.svg", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
+    image: "/images/avatar.svg", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
     role: "Software engineer",
     bio: "",
     email: "rangel.varnier@gmail.com",
@@ -28,8 +28,9 @@ const CONFIG = {
   since: 2023, // If leave this empty, current year will be used.
   lang: "pt-BR", // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES', 'ko-KR']
   ogImageGenerateURL: "https://og-image-korean.vercel.app", // The link to generate OG image, don't end with a slash
+  defaultThumbnail: "", // Add a default thumbnail image if you wish
   seo: {
-    keywords: ["Blog", "Website", "Notion"],
+    keywords: ["Blog", "Website", "Rangel", "Varnier"],
   },
 
   // notion configuration (required)
@@ -55,7 +56,7 @@ const CONFIG = {
     config: {
       repo: "rangelvarnier/morethan-log",
       "issue-term": "og:title",
-      label: "💬 Utterances"
+      label: "💬 Utterances",
     },
   },
   cusdis: {

@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { slug } }: any) {
   try {
-    //includePages: true
+    includePages: true
     const posts = await getPosts()
     const post = posts.find((t) => t.slug === slug)
     const blockMap = await getPostBlocks(post?.id!)
@@ -50,16 +50,18 @@ const DetailPage: NextPageWithLayout<Props> = ({ post, blockMap }) => {
 }
 
 DetailPage.getLayout = function getlayout(page) {
+  const { post } = page.props as Props
+
   const getImage = () => {
-    if (page.props?.post.thumbnail) return page.props?.post.thumbnail
+    if (post?.thumbnail) return post.thumbnail
     if (CONFIG.ogImageGenerateURL)
       return `${CONFIG.ogImageGenerateURL}/${encodeURIComponent(
-        page.props?.post.title
+        post?.title || ""
       )}.png?theme=dark&md=1&fontSize=125px&images=https%3A%2F%2Fmorethan-log.vercel.app%2Flogo-for-dark-bg.svg`
   }
 
   const getMetaConfig = () => {
-    if (!page.props.post) {
+    if (!post) {
       return {
         title: CONFIG.blog.title,
         description: CONFIG.blog.description,
@@ -68,18 +70,18 @@ DetailPage.getLayout = function getlayout(page) {
       }
     }
     return {
-      title: page.props.post.title || CONFIG.blog.title,
+      title: post.title || CONFIG.blog.title,
       date: new Date(
-        page.props.post.date?.start_date || page.props.post.createdTime || ""
+        post.date?.start_date || post.createdTime || ""
       ).toISOString(),
       image: getImage(),
-      description: page.props.post.summary,
-      type: page.props.post.type[0],
-      url: `${CONFIG.link}/${page.props.post.slug}`,
+      description: post.summary || CONFIG.blog.description,
+      type: post.type[0],
+      url: `${CONFIG.link}/${post.slug}`,
     }
   }
   return (
-    <Layout metaConfig={getMetaConfig()} fullWidth={page.props.post?.fullWidth}>
+    <Layout metaConfig={getMetaConfig()} fullWidth={post?.fullWidth}>
       {page}
     </Layout>
   )

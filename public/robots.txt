@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://rangel.vercel.app
-
-# Sitemaps
-Sitemap: https://rangel.vercel.app/sitemap.xml

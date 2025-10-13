@@ -9,42 +9,50 @@ import Category from "@components/Category"
 import Image from "next/image"
 import Link from "next/link"
 
-const Code = dynamic(() =>
-  import("react-notion-x/build/third-party/code").then(async (m) => {
-    await Promise.all([
-      import('prismjs/components/prism-markup-templating.js'),
-      import('prismjs/components/prism-markup.js'),
-      import('prismjs/components/prism-bash.js'),
-      import('prismjs/components/prism-docker.js'),
-      import('prismjs/components/prism-java.js'),
-      import('prismjs/components/prism-js-templates.js'),
-      import('prismjs/components/prism-diff.js'),
-      import('prismjs/components/prism-git.js'),
-      import('prismjs/components/prism-go.js'),
-      import('prismjs/components/prism-handlebars.js'),
-      import('prismjs/components/prism-less.js'),
-      import('prismjs/components/prism-makefile.js'),
-      import('prismjs/components/prism-markdown.js'),
-      import('prismjs/components/prism-python.js'),
-      import('prismjs/components/prism-reason.js'),
-      import('prismjs/components/prism-sass.js'),
-      import('prismjs/components/prism-scss.js'),
-      import('prismjs/components/prism-solidity.js'),
-      import('prismjs/components/prism-sql.js'),
-      import('prismjs/components/prism-stylus.js'),
-      import('prismjs/components/prism-yaml.js')
-    ])
-    return m.Code
-  })
-)
-const Collection = dynamic(() =>
-  import("react-notion-x/build/third-party/collection").then((m) => m.Collection),
+const Code = dynamic(
+  () =>
+    import("react-notion-x/build/third-party/code").then(async (m) => {
+      await Promise.all([
+        import("prismjs/components/prism-markup-templating.js"),
+        import("prismjs/components/prism-markup.js"),
+        import("prismjs/components/prism-bash.js"),
+        import("prismjs/components/prism-docker.js"),
+        import("prismjs/components/prism-java.js"),
+        import("prismjs/components/prism-js-templates.js"),
+        import("prismjs/components/prism-diff.js"),
+        import("prismjs/components/prism-git.js"),
+        import("prismjs/components/prism-go.js"),
+        import("prismjs/components/prism-handlebars.js"),
+        import("prismjs/components/prism-less.js"),
+        import("prismjs/components/prism-makefile.js"),
+        import("prismjs/components/prism-markdown.js"),
+        import("prismjs/components/prism-python.js"),
+        import("prismjs/components/prism-reason.js"),
+        import("prismjs/components/prism-sass.js"),
+        import("prismjs/components/prism-scss.js"),
+        import("prismjs/components/prism-solidity.js"),
+        import("prismjs/components/prism-sql.js"),
+        import("prismjs/components/prism-stylus.js"),
+        import("prismjs/components/prism-yaml.js"),
+      ])
+      return m.Code
+    }),
   {
     ssr: false,
   }
 )
-const Equation = dynamic(() =>
-  import("react-notion-x/build/third-party/equation").then((m) => m.Equation),
+const Collection = dynamic(
+  () =>
+    import("react-notion-x/build/third-party/collection").then(
+      (m) => m.Collection
+    ),
+  {
+    ssr: false,
+  }
+)
+const Equation = dynamic(
+  () =>
+    import("react-notion-x/build/third-party/equation").then((m) => m.Equation),
   {
     ssr: false,
   }
@@ -63,7 +71,7 @@ const Modal = dynamic(
 )
 
 const mapPageUrl = (id: string) => {
-  return "https://www.notion.so/" + id.replace(/-/g, "");
+  return "https://www.notion.so/" + id.replace(/-/g, "")
 }
 
 type Props = {
@@ -72,7 +80,7 @@ type Props = {
 }
 
 const PostDetail: React.FC<Props> = ({ blockMap, data }) => {
-  const category = (data.category && data.category?.[0]) || undefined
+  const category = data.category || undefined
   return (
     <div
       className={`m-auto max-w-12xl bg-white dark:bg-zinc-700 rounded-3xl py-12 px-6 shadow-md`}
@@ -86,7 +94,7 @@ const PostDetail: React.FC<Props> = ({ blockMap, data }) => {
             {category}
           </Category>
         )}
-        {data.type[0] === "Post" && <PostHeader data={data} />}
+        {data.type === "Post" && <PostHeader data={data} />}
         {blockMap && (
           <div className="-mt-4">
             <NotionRenderer
@@ -104,7 +112,7 @@ const PostDetail: React.FC<Props> = ({ blockMap, data }) => {
             />
           </div>
         )}
-        {data.type[0] === "Post" && (
+        {data.type === "Post" && (
           <>
             <Footer />
             <CommentBox data={data} />

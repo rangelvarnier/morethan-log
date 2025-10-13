@@ -22,7 +22,10 @@ const PostList: React.FC<Props> = ({ q, posts }) => {
       let filteredPosts = posts
       // keyword
       filteredPosts = filteredPosts.filter((post) => {
-        const tagContent = post.tags ? post.tags.join(" ") : ""
+        // Extrair o nome de cada tag para a busca textual
+        const tagContent = post.tags
+          ? post.tags.map((tag) => tag.name).join(" ")
+          : ""
         const searchContent = post.title + post.summary + tagContent
         return searchContent.toLowerCase().includes(q.toLowerCase())
       })
@@ -30,15 +33,17 @@ const PostList: React.FC<Props> = ({ q, posts }) => {
       // tag
       if (currentTag) {
         filteredPosts = filteredPosts.filter(
-          (post) => post && post.tags && post.tags.includes(currentTag)
+          (post) =>
+            post &&
+            post.tags &&
+            post.tags.some((tag) => tag.name === currentTag) // Verificar se ALGUMA tag tem o nome correspondente
         )
       }
 
       // category
       if (currentCategory !== DEFAULT_CATEGORY) {
         filteredPosts = filteredPosts.filter(
-          (post) =>
-            post && post.category && post.category.includes(currentCategory)
+          (post) => post && post.category && post.category === currentCategory // Category agora é string
         )
       }
       // order
